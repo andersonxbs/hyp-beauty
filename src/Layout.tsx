@@ -8,7 +8,7 @@ export default function Layout({ children }) {
           <p className="menu-label">General</p>
           <ul className="menu-list">
             <li>
-              <Link to="/">Dashboard</Link>
+              <Link to="/">Dashboard de Beauty</Link>
             </li>
             <li>
               <Link to="/agenda">Agenda</Link>
