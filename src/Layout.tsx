@@ -1,6 +1,24 @@
 import { Link } from "react-router-dom";
+import { useFlagsmith } from 'flagsmith-react';
+import { useEffect, useState } from "react";
 
 export default function Layout({ children }) {
+  const { isLoading, getValue, hasFeature, identify, subscribe } = useFlagsmith()
+  const [showAgenda, setShowAgenda] = useState(false)
+
+  useEffect(() => {
+    if(!isLoading) {
+      identify('someone@somewhere.com')
+    }
+
+  }, [isLoading])
+
+  const handleChange = () => {
+    setShowAgenda(hasFeature('show_agenda'))
+  }
+
+  subscribe(handleChange)
+
   return (
     <div className="container">
       <div className="columns">
@@ -10,9 +28,11 @@ export default function Layout({ children }) {
             <li>
               <Link to="/">Dashboard de Beauty</Link>
             </li>
-            <li>
-              <Link to="/agenda">Agenda</Link>
-            </li>
+            { showAgenda &&
+              <li>
+                <Link to="/agenda">Agenda</Link>
+              </li>
+            }
           </ul>
         </aside>
 
