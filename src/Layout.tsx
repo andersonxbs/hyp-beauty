@@ -3,7 +3,7 @@ import { useFlagsmith } from 'flagsmith-react';
 import { useEffect, useState } from "react";
 
 export default function Layout({ children }) {
-  const { isLoading, getValue, hasFeature, identify, subscribe } = useFlagsmith()
+  const { isLoading, hasFeature, identify, subscribe } = useFlagsmith()
   const [showAgenda, setShowAgenda] = useState(false)
 
   useEffect(() => {
