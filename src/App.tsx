@@ -1,9 +1,9 @@
 import { FlagsmithProvider } from "flagsmith-react";
-import Routes from "./Routes";
+import AppRoutes from "./Routes";
 
 const App = ({ flagsEnvironmentKey, flagsApi }) =>  (
   <FlagsmithProvider environmentId={flagsEnvironmentKey} api={flagsApi}>
-    <Routes />
+    <AppRoutes />
   </FlagsmithProvider>
 );
 
